@@ -167,7 +167,7 @@ namespace RassMobile
 
         void InstantiatePhone()
         {
-            Stream str = Assembly.GetExecutingAssembly().GetManifestResourceStream("RassMobile.modmenu");
+            Stream str = Assembly.GetExecutingAssembly().GetManifestResourceStream("RassMobile.phone");
             AssetBundle bundle = AssetBundle.LoadFromStream(str);
 
             GameObject Phone = bundle.LoadAsset<GameObject>("RassModMenu");
