@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -46,6 +46,11 @@ namespace RassMobile
             mods.Add(new TimeStop("Time Stop", "stop time by pressing A"));
             mods.Add(new Dash("Dash", "press A to dash"));
             mods.Add(new AirGrab("Air Grab", "hold Grip to grab the air (Its basically like platforms without the platforms)"));
+            mods.Add(new Rewind("Rewind", "hold B to record your movement then release B to replay your movements"));
+            mods.Add(new BiggerMonkey("Bigger Monkey", "makes you bigger"));
+            mods.Add(new Upsidedown("Upsidedown", "turns you upsidedown"));
+            mods.Add(new Flight("Flight", "hold trigger to fly"));
+            mods.Add(new Geppo("Geppo", "hold trigger to and move your controller to launch your self (Mod idea by my brother)"));
             
             Utilla.Events.GameInitialized += GameInitialized;
         }
@@ -65,7 +70,6 @@ namespace RassMobile
             {
                 if (isSteam) { leftjoystick = SteamVR_Actions.gorillaTag_LeftJoystick2DAxis.axis; }
                 else { ControllerInputPoller.instance.leftControllerDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out leftjoystick); }
-                Logger.LogInfo(leftjoystick);
 
                 if (ControllerInputPoller.instance.leftControllerPrimaryButton && !hold)
                 {
@@ -167,7 +171,7 @@ namespace RassMobile
 
         void InstantiatePhone()
         {
-            Stream str = Assembly.GetExecutingAssembly().GetManifestResourceStream("RassMobile.phone");
+            Stream str = Assembly.GetExecutingAssembly().GetManifestResourceStream("RassMobile.modmenu");
             AssetBundle bundle = AssetBundle.LoadFromStream(str);
 
             GameObject Phone = bundle.LoadAsset<GameObject>("RassModMenu");
