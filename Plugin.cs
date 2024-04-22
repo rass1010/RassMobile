@@ -51,7 +51,7 @@ namespace RassMobile
             mods.Add(new Upsidedown("Upsidedown", "turns you upsidedown"));
             mods.Add(new Flight("Flight", "hold trigger to fly"));
             mods.Add(new Geppo("Geppo", "hold trigger to and move your controller to launch your self (Mod idea by my brother)"));
-            mods.Add(new FirstPerson("First Person Camera", "Makes your computer have a first person view"));
+            mods.Add(new FirstPerson("First Person Camera", "Makes your computer have a first person view")); //Added first person
             
             Utilla.Events.GameInitialized += GameInitialized;
         }
