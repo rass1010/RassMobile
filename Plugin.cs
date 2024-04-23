@@ -50,14 +50,16 @@ namespace RassMobile
             mods.Add(new BiggerMonkey("Bigger Monkey", "makes you bigger"));
             mods.Add(new Upsidedown("Upsidedown", "turns you upsidedown"));
             mods.Add(new Flight("Flight", "hold trigger to fly"));
-            mods.Add(new Geppo("Geppo", "hold trigger to and move your controller to launch your self (Mod idea by my brother)"));
+            mods.Add(new Geppo("Geppo", "hold trigger and move your controller to launch your self (Mod idea by my brother)"));
+            mods.Add(new NoClip("NoClip", "disables your collider"));
+            mods.Add(new WallRunAssist("Wall Run Assist", "makes wall running easier"));
             
             Utilla.Events.GameInitialized += GameInitialized;
         }
 
 
 
-        private void GameInitialized(object sender, EventArgs e)
+        private void GameInitialized(object sender, EventArgs e) 
         {
             // Player instance has been created
             isSteam = Traverse.Create(PlayFabAuthenticator.instance).Field("platform").GetValue().ToString().ToLower() == "steam";
